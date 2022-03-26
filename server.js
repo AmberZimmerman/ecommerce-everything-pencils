@@ -19,3 +19,5 @@ app.listen(PORT, () => {
 // Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start.
 
 // in product.js, under the product model in category_id, need to referce the Category model id
+
+// do I manually need to enter id to all fields in the different models
