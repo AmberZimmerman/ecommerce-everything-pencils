@@ -20,4 +20,7 @@ app.listen(PORT, () => {
 
 // in product.js, under the product model in category_id, need to referce the Category model id
 
+// in producttag.js, in producttag model, need to reference the product model id under product_id. Also reference the Tag models id under tag_id
+
 // do I manually need to enter id to all fields in the different models
+
