@@ -34,7 +34,7 @@ router.put('/:id', async (req, res) => {
     );
     res.status(200).json(categoryData);
   } catch (error) {
-   
+   res,statys(500).json(err);
 
   }
 });
