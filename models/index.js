@@ -14,11 +14,13 @@ Product.hasOne(Category, {
 
 // Products belongToMany Tags (through ProductTag)
 Product.belongsTo(Tag, {
-  foreignKey: 'producttag_id',
+  foreignKey: 'product_tag_id',
   // or would it be product id from the producttag reference in the model?
 })
 
 // Tags belongToMany Products (through ProductTag)
+
+
 
 module.exports = {
   Product,

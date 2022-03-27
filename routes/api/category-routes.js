@@ -3,9 +3,18 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all categories
   // be sure to include its associated Products
+  try {
+    const allCategoryData = await Category.findAll({
+      // Add Book as a second model to JOIN with
+      include: [{ model: Product }],
+    });
+    res.status(200).json(allCategoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/:id', (req, res) => {
@@ -17,8 +26,17 @@ router.post('/', (req, res) => {
   // create a new category
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a category by its `id` value
+  try {
+    const categoryData = await Category.update({ product_name: req.body.product_name}, 
+    { where: { id : req.params.id } }
+    );
+    res.status(200).json(categoryData);
+  } catch (error) {
+   
+
+  }
 });
 
 router.delete('/:id', (req, res) => {

@@ -1,4 +1,5 @@
 const express = require('express');
+const { sequelize } = require('./models/Product');
 const routes = require('./routes');
 // import sequelize connection
 
@@ -17,6 +18,9 @@ app.listen(PORT, () => {
 
 
 // Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start.
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
 
 // in product.js, under the product model in category_id, need to referce the Category model id
 
