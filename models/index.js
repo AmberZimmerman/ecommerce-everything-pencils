@@ -29,6 +29,3 @@ module.exports = {
   Tag,
   ProductTag,
 };
-
-// Team.hasMany(Player);
-// Player.belongsTo(Team);
