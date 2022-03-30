@@ -22,6 +22,9 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
+
+
+
 // in product.js, under the product model in category_id, need to referce the Category model id
 
 // in producttag.js, in producttag model, need to reference the product model id under product_id. Also reference the Tag models id under tag_id
