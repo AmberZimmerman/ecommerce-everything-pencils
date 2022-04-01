@@ -13,8 +13,10 @@ router.get('/', async (req, res) => {
       include: [{ model: Category }, { model: Tag }],
     });
     res.status(200).json(allProductData);
+
   } catch (err) {
     res.status(500).json(err);
+    return;
   }
 });
 
@@ -27,9 +29,15 @@ router.get('/:id', async (req, res) => {
       include: [{model: Category}, {model: Tag}
       ],
     });
+    if (!productData) {
+      res.status(404).json({message: 'No product exists with that ID'});
+      return;
+    }
     res.status(200).json(productData);
+
   } catch (err) {
     res.status(500).json(err);
+    return;
   }
 });
 
@@ -113,9 +121,14 @@ router.delete('/:id', async (req, res) => {
     const oneProductData = await Product.destroy({
       where: { id: req.params.id } }
     );
+    if (!oneProductData) {
+      res.status(404).json({message: 'No product exists with that ID'});
+      return;
+    }
     res.status(200).json(oneProductData)
   } catch (error) {
-    res,statys(500).json(err);
+    res.status(500).json(err);
+    return;
  
   }
 });
