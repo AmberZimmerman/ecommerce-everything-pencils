@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(allCategoryData);
   } catch (err) {
     res.status(500).json(err);
+    return;
   }
 });
 
@@ -22,13 +23,17 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Products
   try {
     const oneCategory = await Product.findByPk(req.params.id, {
-      include: [{model: Category},
-        {model: Tag}
+      include: [{model: Product},
       ],
     });
+    if (!oneCategory) {
+      res.status(404).json({ message: 'No category exists with that ID'});
+      return;
+    }
     res.status(200).json(oneCategory);
   } catch (err) {
     res.status(500).json(err);
+    return;
   }
 });
 
@@ -37,23 +42,30 @@ router.post('/', async (req, res) => {
   // create a new category
   try {
     const categoryData = await Category.create(req.body);
-    res.status(200).json(`This is the post: ${categoryData}`);
+    res.status(200).json(categoryData);
   } catch (err) {
     res.status(400).json(err);
-
+    return;
   }
 });
 
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try {
-    const categoryData = await Category.update({ category_name: req.body.category_name}, 
-    { where: { id : req.params.id } }
-    );
+    const categoryData = await Category.update({category_name: req.body.category_name}, 
+    {where: { 
+      id : req.params.id 
+    } 
+  });
+
+    if (!categoryData) {
+      res.status(404).json({message: 'No category exists with that ID'});
+      return;
+    }
     res.status(200).json(categoryData);
   } catch (error) {
-   res,statys(500).json(err);
-
+    res.status(500).json(err);
+    return;
   }
 });
 
@@ -63,10 +75,14 @@ router.delete('/:id', async (req, res) => {
     const categoryData = await Category.destroy({
       where: { id: req.params.id } }
     );
+    if (!categoryData) {
+      res.status(404).json({message: 'No category exists with that ID'});
+      return;
+    }
     res.status(200).json(categoryData)
   } catch (error) {
-    res,statys(500).json(err);
- 
+    res.status(500).json(err);
+    return;
   }
 });
 
