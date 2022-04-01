@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
   } catch (err) {
     res.status(500).json(err);
-    return;
+    
   }
 });
 
@@ -31,13 +31,13 @@ router.get('/:id', async (req, res) => {
     });
     if (!productData) {
       res.status(404).json({message: 'No product exists with that ID'});
-      return;
+      
     }
     res.status(200).json(productData);
 
   } catch (err) {
     res.status(500).json(err);
-    return;
+    
   }
 });
 
@@ -110,7 +110,7 @@ router.put('/:id', (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -123,12 +123,12 @@ router.delete('/:id', async (req, res) => {
     );
     if (!oneProductData) {
       res.status(404).json({message: 'No product exists with that ID'});
-      return;
+      
     }
     res.status(200).json(oneProductData)
   } catch (error) {
     res.status(500).json(err);
-    return;
+    
  
   }
 });

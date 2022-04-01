@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(allTagData);
   } catch (err) {
     res.status(500).json(err);
-    return;
+    
   }
 });
 
@@ -27,13 +27,13 @@ router.get('/:id', async (req, res) => {
     });
     if (!oneTag) {
       res.status(404).json({message: 'No tags exist with that id'});
-      return;
+      
     }
     res.status(200).json(oneTag);
 
   } catch (err) {
     res.status(500).json(err);
-    return;
+    
   }
 });
 
@@ -54,15 +54,15 @@ router.put('/:id', async (req, res) => {
     const tagData = await Tag.update({ tag_name: req.body.tag_name}, 
     { where: { id : req.params.id } }
     );
-    if (!tagTag) {
+    if (!tagData) {
       res.status(404).json({message: 'No tags exist with that id'});
-      return;
+      
     }
       res.status(200).json(tagData);
 
   } catch (error) {
    res.status(500).json(err);
-   return;
+   
 
   }
 });
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
     res.status(200).json(tagData)
   } catch (error) {
     res.status(500).json(err);
-    return;
+    
   }
 });
 
