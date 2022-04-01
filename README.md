@@ -4,8 +4,11 @@
 ### License Description:
 [Click here for the most current description of this license](https://opensource.org/licenses/MIT)
 
+### Video Walkthrough of the project:
+[Click here to watch a walkthrough of the video](https://drive.google.com/drive/folders/1aPcGE6_DMf_JfofeDzrjpkjgzBzFul_Q?usp=sharing)
+
 ## Table of Contents: 
-* [Description](#description)
+* [Video Walkthrough](#description)
 * [Installation](#installation)
 * [Usage Instructions](#usage-instructions)
 * [License](#license)
@@ -13,6 +16,8 @@
 * [Tests](#tests)
 * [Questions](#questions)
 * [Screenshots](#screenshot)
+
+
 ### Description of the project:
 The is the backend component to a ecommerce site for an online retail store. It meets MVP criteria. An Express.js API was built to use Sequelize to interact with a MySQL database. This allows the user to be competitive with other retail stores. Currently no front end.
 
@@ -27,4 +32,5 @@ Copy code from SSH keys and paste into the directory in your terminal. After pas
 If you have any questions contact me on [GitHub](https://github.com/AmberZimmerman) 
 
 ### Screenshot:
-![My Image](Project screenshot not available for this project) 
+![My Image](./assets/screenshot-1.png) 
+![My Image](./assets/screenshot-2.png) 
