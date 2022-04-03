@@ -26,7 +26,7 @@ In order to install the necessary dependencies, open the console and run the fol
 ```npm i, npm start, npm run seed```
 
 ### Usage Instructions:
-Copy code from SSH keys and paste into the directory in your terminal. After pasting, type "git clone origin main".
+Copy code from SSH keys. Open your terminal and cd to the directory you want to save the code in. Once in the folder, type into the terminal "git clone origin main" followed by the paste of the link, then hit enter.
 
 ### Questions:
 If you have any questions contact me on [GitHub](https://github.com/AmberZimmerman) 
